@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "aa2fcd676f3956dc7a29371f81b995f7",
+    "revision": "31d2c1bc8748c603f3ab548516db5e8c",
     "url": "/Notepad-Web-App/index.html"
   },
   {
-    "revision": "83c0a82079848dee0729",
+    "revision": "73cb9af5867b3d47213c",
     "url": "/Notepad-Web-App/static/css/2.19e10c4f.chunk.css"
   },
   {
@@ -12,12 +12,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Notepad-Web-App/static/css/main.29172ead.chunk.css"
   },
   {
-    "revision": "83c0a82079848dee0729",
-    "url": "/Notepad-Web-App/static/js/2.ea929e0d.chunk.js"
+    "revision": "73cb9af5867b3d47213c",
+    "url": "/Notepad-Web-App/static/js/2.4c81106b.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/Notepad-Web-App/static/js/2.ea929e0d.chunk.js.LICENSE.txt"
+    "url": "/Notepad-Web-App/static/js/2.4c81106b.chunk.js.LICENSE.txt"
   },
   {
     "revision": "017d3226503082f751fd",

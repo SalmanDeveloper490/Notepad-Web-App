@@ -6,19 +6,19 @@
     "runtime-main.js": "/Notepad-Web-App/static/js/runtime-main.8b60fa50.js",
     "runtime-main.js.map": "/Notepad-Web-App/static/js/runtime-main.8b60fa50.js.map",
     "static/css/2.19e10c4f.chunk.css": "/Notepad-Web-App/static/css/2.19e10c4f.chunk.css",
-    "static/js/2.ea929e0d.chunk.js": "/Notepad-Web-App/static/js/2.ea929e0d.chunk.js",
-    "static/js/2.ea929e0d.chunk.js.map": "/Notepad-Web-App/static/js/2.ea929e0d.chunk.js.map",
+    "static/js/2.4c81106b.chunk.js": "/Notepad-Web-App/static/js/2.4c81106b.chunk.js",
+    "static/js/2.4c81106b.chunk.js.map": "/Notepad-Web-App/static/js/2.4c81106b.chunk.js.map",
     "index.html": "/Notepad-Web-App/index.html",
-    "precache-manifest.3bf323b934527922f6719252ac54c387.js": "/Notepad-Web-App/precache-manifest.3bf323b934527922f6719252ac54c387.js",
+    "precache-manifest.7d004ce71452ef08ea82ed240c944ad4.js": "/Notepad-Web-App/precache-manifest.7d004ce71452ef08ea82ed240c944ad4.js",
     "service-worker.js": "/Notepad-Web-App/service-worker.js",
     "static/css/2.19e10c4f.chunk.css.map": "/Notepad-Web-App/static/css/2.19e10c4f.chunk.css.map",
     "static/css/main.29172ead.chunk.css.map": "/Notepad-Web-App/static/css/main.29172ead.chunk.css.map",
-    "static/js/2.ea929e0d.chunk.js.LICENSE.txt": "/Notepad-Web-App/static/js/2.ea929e0d.chunk.js.LICENSE.txt"
+    "static/js/2.4c81106b.chunk.js.LICENSE.txt": "/Notepad-Web-App/static/js/2.4c81106b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8b60fa50.js",
     "static/css/2.19e10c4f.chunk.css",
-    "static/js/2.ea929e0d.chunk.js",
+    "static/js/2.4c81106b.chunk.js",
     "static/css/main.29172ead.chunk.css",
     "static/js/main.393f6a9e.chunk.js"
   ]
