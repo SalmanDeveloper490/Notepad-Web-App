@@ -123,7 +123,6 @@ class App extends Component {
     const valueToFind = this.state.find;
     const valueToReplace = this.state.replace;
     let value = this.stripTags(this.state.value);
-    //console.log(valueToReplace, value, valueToFind);
     // match value and replace text
     if (valueToReplace.trim() === "") {
       alert("Please Add Some Text");
@@ -187,7 +186,7 @@ class App extends Component {
   findTextHandler = () => {
     const valueToFind = this.state.find;
     let value = this.stripTags(this.state.value);
-    //console.log(valueToFind, value);
+
     if (valueToFind.trim() === "") {
       alert("Please Add Some Text");
       return false;
@@ -278,9 +277,9 @@ class App extends Component {
                   <ContentEditable
                     className="notepad"
                     innerRef={this.contentEditable}
-                    html={this.state.value} // innerHTML of the editable div
-                    disabled={false} // use true to disable editing
-                    onChange={this.handleChange} // handle innerHTML change
+                    html={this.state.value}
+                    disabled={false}
+                    onChange={this.handleChange}
                   />
                 </div>
               )}
