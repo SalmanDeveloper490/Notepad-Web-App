@@ -22,7 +22,7 @@
   margin: 2px;
 }
 footer {
-  margin: 0px 0 0 0;
+  margin: 50px 0 0 0; /* or just use:  margin-top: 50px;*/
 }
 /* toggle button */
 .switch {
@@ -83,6 +83,13 @@ input:checked + .slider:before {
 }
 /* toggle button */
 
+.theme-mode {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #7c7c7d;
+}
+
 .dark-theme {
   background-color: #000;
   color: #fff;
@@ -96,4 +103,56 @@ input:checked + .slider:before {
   margin: 2px;
   background: gold;
   padding: 10px;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.upload-btn-wrapper .fileButton {
+  border: unset;
+  background: transparent;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  margin: 0px auto;
+  text-align: justify;
+  padding-left: 23px;
+}
+
+.upload-btn-wrapper input[type="file"] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  z-index: 100;
+}
+
+/* dark theme  */
+.dark-theme .navbar,
+.dark-theme .copyright,
+.dark-theme .dropdown-menu.show {
+  background: #000 !important;
+}
+.dark-theme .dropdown-menu.show {
+  border: 1px solid #fff;
+}
+.dark-theme .navbar .navbar-nav a,
+.dark-theme .navbar-light .navbar-brand,
+.dark-theme .theme-mode,
+.dark-theme .copyright p,
+.dark-theme .navbar .navbar-nav a:hover,
+.dark-theme .navbar-light .navbar-brand:hover,
+.dark-theme .upload-btn-wrapper .fileButton {
+  color: #fff !important;
+}
+.dark-theme .copyright {
+  border-top: 1px solid #fff;
+}
+.dark-theme .dropdown-item:focus,
+.dark-theme .dropdown-item:hover {
+  background-color: transparent;
 }

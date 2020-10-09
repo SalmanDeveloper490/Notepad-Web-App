@@ -8,7 +8,6 @@ import { saveAs } from "file-saver";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer";
-import Appmode from "./components/Appmode";
 
 toast.configure();
 class App extends Component {
@@ -22,14 +21,22 @@ class App extends Component {
     find: "",
     replace: "",
     darkTheme: false,
+    ischecked: false,
+    Counter: 0,
   };
 
   componentDidMount() {
     this.setState({
       darkTheme: JSON.parse(localStorage.getItem("darkTheme")),
     });
-    //console.log(this.state.darkTheme);
   }
+
+  matchCase = () => {
+    //console.log(this.state.ischecked);
+    this.setState({
+      ischecked: !this.state.ischecked,
+    });
+  };
 
   saveFile = () => {
     const filename = prompt("Please Enter Your Filename");
@@ -73,18 +80,70 @@ class App extends Component {
     });
   };
 
+  replaceHandler = () => {
+    const valueToFind = this.state.find;
+    const valueToReplace = this.state.replace;
+    let value = this.stripTags(this.state.value);
+    //console.log(valueToReplace, value, valueToFind);
+    // match value and replace text
+    if (valueToReplace.trim() === "") {
+      alert("Please Add Some Text");
+      return false;
+    } else {
+      let regex;
+      if (this.state.ischecked) {
+        regex = new RegExp(valueToFind, "i");
+      } else {
+        regex = new RegExp(valueToFind);
+      }
+      if (value.match(regex)) {
+        if (value.length > 0) {
+          if (this.state.ischecked === true) {
+            value = value.replace(regex, valueToReplace);
+          } else {
+            value = value.replace(regex, valueToReplace);
+          }
+        }
+      } else {
+        alert(`Cannot Replace ${valueToReplace}`);
+        document.getElementsByClassName("show")[0].style.opacity = "0";
+        document.getElementsByClassName("hide-modal")[0].style.display = "none";
+        this.setState({
+          find: "",
+          replace: "",
+          ischecked: false,
+        });
+      }
+    }
+    this.setState({
+      value: value,
+    });
+  };
+
   replaceTextHandler = () => {
     const valueToFind = this.state.find;
     const valueToReplace = this.state.replace;
     let value = this.stripTags(this.state.value);
-    console.log(valueToReplace, value, valueToFind);
+    //console.log(valueToReplace, value, valueToFind);
     // match value and replace text
-    if (valueToReplace === "") {
-      return null;
+    if (valueToReplace.trim() === "") {
+      alert("Please Add Some Text");
+      return false;
     } else {
-      if (value.match(valueToReplace)) {
+      let regex;
+      if (this.state.ischecked) {
+        regex = new RegExp(valueToFind, "ig");
+      } else {
+        regex = new RegExp(valueToFind);
+      }
+      if (value.match(regex)) {
         if (value.length > 0) {
-          value = value.replaceAll(valueToFind, valueToReplace);
+          if (this.state.ischecked === true) {
+            value = value.replaceAll(regex, valueToReplace);
+          } else {
+            value = value.replaceAll(valueToFind, valueToReplace);
+          }
+
           toast.success("Text Replaced Successfully", {
             position: "top-right",
             autoClose: 5000,
@@ -93,6 +152,11 @@ class App extends Component {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
+          });
+          this.setState({
+            find: "",
+            replace: "",
+            ischecked: false,
           });
           document.getElementsByClassName("show")[0].style.opacity = "0";
           document.getElementsByClassName("hide-modal")[0].style.display =
@@ -125,15 +189,28 @@ class App extends Component {
     const valueToFind = this.state.find;
     let value = this.stripTags(this.state.value);
     //console.log(valueToFind, value);
-    if (valueToFind === "") {
-      return null;
+    if (valueToFind.trim() === "") {
+      alert("Please Add Some Text");
+      return false;
     } else {
-      if (value.match(valueToFind)) {
+      let regex;
+      if (this.state.ischecked) {
+        regex = new RegExp(valueToFind, "ig");
+      } else {
+        regex = new RegExp(valueToFind);
+      }
+      if (value.match(regex)) {
         if (value.length > 0) {
-          value = value.replaceAll(
-            valueToFind,
-            `<span class="highlight">${valueToFind}</span>`
-          );
+          if (this.state.ischecked === true) {
+            value = value.replace(regex, function (str) {
+              return `<span class="highlight">${str}</span>`;
+            });
+          } else {
+            value = value.replaceAll(
+              valueToFind,
+              `<span class="highlight">${valueToFind}</span>`
+            );
+          }
         }
       } else {
         alert(`Cannot match ${valueToFind}`);
@@ -145,18 +222,32 @@ class App extends Component {
     });
   };
 
-  handleChange = (evt) => {
-    this.setState({ value: evt.target.value });
+  handleChange = (e) => {
+    this.setState({
+      value: e.target.value,
+    });
   };
 
   themeMode = () => {
-    //console.log("=>" + this.state.darkTheme);
     this.setState({
       darkTheme: !this.state.darkTheme,
     });
     localStorage.setItem("darkTheme", JSON.stringify(!this.state.darkTheme));
-    //console.log(this.state.darkTheme);
     return this.state.darkTheme || false;
+  };
+
+  openFile = (e) => {
+    const fileread = new FileReader();
+    fileread.onload = (e) => {
+      console.log(e.target);
+      document.getElementsByClassName("notepad")[0].textContent =
+        fileread.result;
+      this.setState({
+        value: fileread.result,
+      });
+    };
+    fileread.readAsText(e.target.files[0]);
+    //document.getElementsByClassName("dropdown-menu")[0].style.display = "none";
   };
 
   render() {
@@ -166,12 +257,19 @@ class App extends Component {
           <TopNavbar
             saveFile={this.saveFile}
             find={this.find}
-            replaceTextHandler={this.replaceTextHandler}
             replace={this.replace}
             findTextHandler={this.findTextHandler}
-            buttonHandler={this.buttonHandler}
+            replaceTextHandler={this.replaceTextHandler}
+            replaceHandler={this.replaceHandler}
+            findValue={this.state.find}
+            replaceValue={this.state.replace}
+            openFile={this.openFile}
+            saveAsHandler={this.saveAsHandler}
+            themeMode={this.themeMode}
+            theme={this.state.darkTheme}
+            matchCase={this.matchCase}
+            ischecked={this.state.ischecked}
           />
-          <Appmode themeMode={this.themeMode} theme={this.state.darkTheme} />
           <Switch>
             <Route
               exact

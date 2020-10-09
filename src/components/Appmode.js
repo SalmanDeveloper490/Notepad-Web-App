@@ -4,8 +4,8 @@ const Appmode = (props) => {
   //console.log(props.theme);
   return (
     <div className="container pt-5 text-center">
+      <h2 className="text-uppercase">Change Theme</h2>
       <h6>{props.theme ? "DARK THEME" : "LIGHT THEME"}</h6>
-
       <label className="switch">
         <input type="checkbox" onChange={props.themeMode} />
         <span className="slider round"></span>
