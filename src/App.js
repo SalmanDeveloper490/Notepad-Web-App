@@ -251,7 +251,7 @@ class App extends Component {
   render() {
     return (
       <div className={this.state.darkTheme ? "dark-theme" : "light-theme"}>
-        <Router>
+        <Router basename={"/Notepad-Web-App"}>
           <TopNavbar
             saveFile={this.saveFile}
             find={this.find}
