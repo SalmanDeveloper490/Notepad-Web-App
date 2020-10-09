@@ -3,7 +3,6 @@ import "./App.css";
 import TopNavbar from "./components/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ContentEditable from "react-contenteditable";
-import Error from "./components/Error";
 import { saveAs } from "file-saver";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -286,7 +285,6 @@ class App extends Component {
                 </div>
               )}
             />
-            <Route component={Error} />
           </Switch>
           <Footer />
         </Router>
