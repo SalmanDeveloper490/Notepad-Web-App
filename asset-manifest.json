@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Notepad-Web-App/static/css/main.29172ead.chunk.css",
-    "main.js": "/Notepad-Web-App/static/js/main.32765aff.chunk.js",
-    "main.js.map": "/Notepad-Web-App/static/js/main.32765aff.chunk.js.map",
+    "main.js": "/Notepad-Web-App/static/js/main.d0332cb0.chunk.js",
+    "main.js.map": "/Notepad-Web-App/static/js/main.d0332cb0.chunk.js.map",
     "runtime-main.js": "/Notepad-Web-App/static/js/runtime-main.8b60fa50.js",
     "runtime-main.js.map": "/Notepad-Web-App/static/js/runtime-main.8b60fa50.js.map",
     "static/css/2.19e10c4f.chunk.css": "/Notepad-Web-App/static/css/2.19e10c4f.chunk.css",
     "static/js/2.ea929e0d.chunk.js": "/Notepad-Web-App/static/js/2.ea929e0d.chunk.js",
     "static/js/2.ea929e0d.chunk.js.map": "/Notepad-Web-App/static/js/2.ea929e0d.chunk.js.map",
     "index.html": "/Notepad-Web-App/index.html",
-    "precache-manifest.ac668e341e8dfeaf73d792f705cf3794.js": "/Notepad-Web-App/precache-manifest.ac668e341e8dfeaf73d792f705cf3794.js",
+    "precache-manifest.efe7c7ec07c3d7b224f0a45de2a85f04.js": "/Notepad-Web-App/precache-manifest.efe7c7ec07c3d7b224f0a45de2a85f04.js",
     "service-worker.js": "/Notepad-Web-App/service-worker.js",
     "static/css/2.19e10c4f.chunk.css.map": "/Notepad-Web-App/static/css/2.19e10c4f.chunk.css.map",
     "static/css/main.29172ead.chunk.css.map": "/Notepad-Web-App/static/css/main.29172ead.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.19e10c4f.chunk.css",
     "static/js/2.ea929e0d.chunk.js",
     "static/css/main.29172ead.chunk.css",
-    "static/js/main.32765aff.chunk.js"
+    "static/js/main.d0332cb0.chunk.js"
   ]
 }
