@@ -90,18 +90,17 @@ class App extends Component {
       return false;
     } else {
       let regex;
-      if (this.state.ischecked) {
+      let replaceRegex;
+      if (this.state.ischecked === true) {
         regex = new RegExp(valueToFind, "i");
+        replaceRegex = new RegExp(valueToFind);
       } else {
-        regex = new RegExp(valueToFind);
+        regex = new RegExp(valueToFind, "g");
+        replaceRegex = new RegExp(valueToFind, "i");
       }
       if (value.match(regex)) {
         if (value.length > 0) {
-          if (this.state.ischecked === true) {
-            value = value.replace(regex, valueToReplace);
-          } else {
-            value = value.replace(regex, valueToReplace);
-          }
+          value = value.replace(replaceRegex, valueToReplace);
         }
       } else {
         alert(`Cannot Replace ${valueToReplace}`);
@@ -129,19 +128,17 @@ class App extends Component {
       return false;
     } else {
       let regex;
-      if (this.state.ischecked) {
+      let replaceRegex;
+      if (this.state.ischecked === true) {
         regex = new RegExp(valueToFind, "ig");
+        replaceRegex = new RegExp(valueToFind, "g");
       } else {
-        regex = new RegExp(valueToFind);
+        regex = new RegExp(valueToFind, "g");
+        replaceRegex = new RegExp(valueToFind, "ig");
       }
       if (value.match(regex)) {
         if (value.length > 0) {
-          if (this.state.ischecked === true) {
-            value = value.replaceAll(regex, valueToReplace);
-          } else {
-            value = value.replaceAll(valueToFind, valueToReplace);
-          }
-
+          value = value.replaceAll(replaceRegex, valueToReplace);
           toast.success("Text Replaced Successfully", {
             position: "top-right",
             autoClose: 5000,
@@ -192,23 +189,20 @@ class App extends Component {
       return false;
     } else {
       let regex;
-      if (this.state.ischecked) {
+      let replaceRegex;
+      if (this.state.ischecked === true) {
         regex = new RegExp(valueToFind, "ig");
+        replaceRegex = new RegExp(valueToFind, "g");
       } else {
-        regex = new RegExp(valueToFind);
+        regex = new RegExp(valueToFind, "g");
+        replaceRegex = new RegExp(valueToFind, "ig");
       }
+      console.log(regex);
       if (value.match(regex)) {
         if (value.length > 0) {
-          if (this.state.ischecked === true) {
-            value = value.replace(regex, function (str) {
-              return `<span class="highlight">${str}</span>`;
-            });
-          } else {
-            value = value.replaceAll(
-              valueToFind,
-              `<span class="highlight">${valueToFind}</span>`
-            );
-          }
+          value = value.replaceAll(replaceRegex, function (str) {
+            return `<span class="highlight">${str}</span>`;
+          });
         }
       } else {
         alert(`Cannot match ${valueToFind}`);

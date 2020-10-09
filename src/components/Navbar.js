@@ -38,7 +38,11 @@ const TopNavbar = (props) => {
           <div className="theme-mode text-center" inline="true">
             <h6>{props.theme ? "DARK THEME" : "LIGHT THEME"}</h6>
             <label className="switch">
-              <input type="checkbox" onChange={props.themeMode} />
+              <input
+                type="checkbox"
+                checked={props.theme ? "checked" : ""}
+                onChange={props.themeMode}
+              />
               <span className="slider round"></span>
             </label>
           </div>

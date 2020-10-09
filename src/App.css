@@ -18,8 +18,7 @@
 .highlight {
   color: goldenrod;
   background: #000;
-  padding: 10px;
-  margin: 2px;
+  padding: 1px 0;
 }
 footer {
   margin: 50px 0 0 0; /* or just use:  margin-top: 50px;*/
@@ -100,9 +99,8 @@ input:checked + .slider:before {
 
 .dark-theme .highlight {
   color: #000;
-  margin: 2px;
   background: gold;
-  padding: 10px;
+  padding: 1px 0;
 }
 
 .upload-btn-wrapper {
