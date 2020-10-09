@@ -1,6 +1,6 @@
 {
-  "homepage": "http://SalmanDeveloper490.github.io/Notepad-React-Web-App",
   "name": "notepad-app",
+  "homepage": "http://SalmanDeveloper490.github.io/Notepad-Web-App",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
