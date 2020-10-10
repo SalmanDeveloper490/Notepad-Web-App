@@ -90,7 +90,7 @@ class App extends Component {
       let regex;
       //let replaceRegex;
       if (this.state.ischecked === true) {
-        regex = new RegExp(valueToFind, "g");
+        regex = new RegExp(valueToFind);
         //replaceRegex = new RegExp(valueToFind);
       } else {
         regex = new RegExp(valueToFind, "i");
