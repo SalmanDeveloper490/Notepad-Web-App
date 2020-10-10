@@ -21,7 +21,6 @@ class App extends Component {
     replace: "",
     darkTheme: false,
     ischecked: false,
-    Counter: 0,
   };
 
   componentDidMount() {
@@ -83,24 +82,23 @@ class App extends Component {
     const valueToFind = this.state.find;
     const valueToReplace = this.state.replace;
     let value = this.stripTags(this.state.value);
-    //console.log(valueToReplace, value, valueToFind);
     // match value and replace text
     if (valueToReplace.trim() === "") {
       alert("Please Add Some Text");
       return false;
     } else {
       let regex;
-      let replaceRegex;
+      //let replaceRegex;
       if (this.state.ischecked === true) {
-        regex = new RegExp(valueToFind, "i");
-        replaceRegex = new RegExp(valueToFind);
-      } else {
         regex = new RegExp(valueToFind, "g");
-        replaceRegex = new RegExp(valueToFind, "i");
+        //replaceRegex = new RegExp(valueToFind);
+      } else {
+        regex = new RegExp(valueToFind, "i");
+        //replaceRegex = new RegExp(valueToFind, "i");
       }
       if (value.match(regex)) {
         if (value.length > 0) {
-          value = value.replace(replaceRegex, valueToReplace);
+          value = value.replace(regex, valueToReplace);
         }
       } else {
         alert(`Cannot Replace ${valueToReplace}`);
@@ -128,17 +126,17 @@ class App extends Component {
       return false;
     } else {
       let regex;
-      let replaceRegex;
+      //let replaceRegex;
       if (this.state.ischecked === true) {
-        regex = new RegExp(valueToFind, "ig");
-        replaceRegex = new RegExp(valueToFind, "g");
-      } else {
         regex = new RegExp(valueToFind, "g");
-        replaceRegex = new RegExp(valueToFind, "ig");
+        //replaceRegex = new RegExp(valueToFind, "g");
+      } else {
+        regex = new RegExp(valueToFind, "ig");
+        //replaceRegex = new RegExp(valueToFind, "ig");
       }
       if (value.match(regex)) {
         if (value.length > 0) {
-          value = value.replaceAll(replaceRegex, valueToReplace);
+          value = value.replaceAll(regex, valueToReplace);
           toast.success("Text Replaced Successfully", {
             position: "top-right",
             autoClose: 5000,
@@ -189,23 +187,30 @@ class App extends Component {
       return false;
     } else {
       let regex;
-      let replaceRegex;
+      //let replaceRegex;
       if (this.state.ischecked === true) {
-        regex = new RegExp(valueToFind, "ig");
-        replaceRegex = new RegExp(valueToFind, "g");
-      } else {
+        console.log("checked if");
+        //regex = new RegExp(valueToFind, "ig");
         regex = new RegExp(valueToFind, "g");
-        replaceRegex = new RegExp(valueToFind, "ig");
+        //replaceRegex = new RegExp(valueToFind, "g");
+      } else {
+        console.log("checked else");
+        //regex = new RegExp(valueToFind, "g");
+        regex = new RegExp(valueToFind, "ig");
+        //replaceRegex = new RegExp(valueToFind, "ig");
       }
       console.log(regex);
+      //console.log(replaceRegex);
       if (value.match(regex)) {
         if (value.length > 0) {
-          value = value.replaceAll(replaceRegex, function (str) {
+          value = value.replaceAll(regex, function (str) {
             return `<span class="highlight">${str}</span>`;
           });
+          console.log("if" + value);
         }
       } else {
         alert(`Cannot match ${valueToFind}`);
+        console.log("else" + value);
       }
     }
 
@@ -230,8 +235,7 @@ class App extends Component {
 
   openFile = (e) => {
     const fileread = new FileReader();
-    fileread.onload = (e) => {
-      console.log(e.target);
+    fileread.onload = () => {
       document.getElementsByClassName("notepad")[0].textContent =
         fileread.result;
       this.setState({
